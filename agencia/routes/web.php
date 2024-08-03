@@ -35,3 +35,13 @@ Route::get('/vista', function()
                                    ]
                  ]);
 });
+
+Route::view('/', 'dashboard');
+/*#########################*/
+##### CRUD de regiones
+Route::get('/regiones', function ()
+{
+    //obtenemos listado de regiones
+    $regiones = DB::select('SELECT * FROM regiones');
+    return view('regiones', [ 'regiones'=>$regiones ]);
+});
